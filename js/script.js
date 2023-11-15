@@ -16,5 +16,10 @@ const app = createApp({
       this.toDo.whatToDo = "";
       console.log(this.lista);
     },
+    removeToDo: function (index) {
+      console.log("remove");
+      this.lista.splice(index, 1);
+      console.log(this.lista);
+    },
   },
 }).mount("#app");

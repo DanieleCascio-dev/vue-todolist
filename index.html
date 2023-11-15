@@ -27,6 +27,7 @@
         <div class="mb-3">
           <label for="to-do" class="form-label">Cosa fare</label>
           <input
+            @keyup.enter="addToList"
             v-model="toDo.whatToDo"
             type="text"
             class="form-control"
@@ -40,14 +41,15 @@
       </div>
       <!-- INPUT -->
       <!-- LIST -->
-      <div class="list-container w-75 p-5">
+      <div class="list-container w-50 p-5">
         <ul class="list-group list-group-flush">
           <li
             v-for="(element,index) in lista"
             :key="index"
-            class="list-group-item"
+            class="list-group-item d-flex justify-content-between"
           >
             {{element}}
+            <span @click="removeToDo(index)">X</span>
           </li>
         </ul>
       </div>
