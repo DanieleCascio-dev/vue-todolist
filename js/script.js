@@ -4,7 +4,10 @@ const app = createApp({
   data() {
     return {
       toDo: {
-        whatToDo: "",
+        whatToDo: {
+          text: "",
+          done: false,
+        },
       },
       lista: [],
     };
@@ -12,14 +15,21 @@ const app = createApp({
   methods: {
     addToList: function () {
       console.log("Lista");
-      this.lista.push(this.toDo.whatToDo);
-      this.toDo.whatToDo = "";
+      this.lista.push({
+        text: this.toDo.whatToDo.text,
+        done: this.toDo.whatToDo.done,
+      });
+      this.toDo.whatToDo.text = "";
       console.log(this.lista);
     },
     removeToDo: function (index) {
       console.log("remove");
       this.lista.splice(index, 1);
       console.log(this.lista);
+    },
+    toDoDone: function (done, index) {
+      console.log("done");
+      this.lista[index].done = !done;
     },
   },
 }).mount("#app");

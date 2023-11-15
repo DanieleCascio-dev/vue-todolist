@@ -10,6 +10,16 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <!-- ctsuom style -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- FONTAWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- VUE -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Document</title>
@@ -28,7 +38,7 @@
           <label for="to-do" class="form-label">Cosa fare</label>
           <input
             @keyup.enter="addToList"
-            v-model="toDo.whatToDo"
+            v-model="toDo.whatToDo.text"
             type="text"
             class="form-control"
             id="to-do"
@@ -47,9 +57,15 @@
             v-for="(element,index) in lista"
             :key="index"
             class="list-group-item d-flex justify-content-between"
+            :class="{'yellow': element.done === false, 'green': element.done === true }"
+            @click="toDoDone(element.done,index)"
           >
-            {{element}}
-            <span @click="removeToDo(index)">X</span>
+            {{element.text}} {{ element.done === false ? ' Da fare!' : ' Fatto!'
+            }}
+
+            <span @click="removeToDo(index)" role="button"
+              ><i class="fa-solid fa-circle-xmark"></i
+            ></span>
           </li>
         </ul>
       </div>
