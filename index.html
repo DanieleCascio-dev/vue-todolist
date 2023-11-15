@@ -17,7 +17,7 @@
   <body>
     <div id="app">
       <header class="d-flex justify-content-center m-5">
-        <h2 class="col-6 text-center">BOOLEAN LIST</h2>
+        <h2 class="col-6 text-center">BOOLEAN TO DO LIST</h2>
       </header>
 
       <!-- INPUT -->
@@ -25,20 +25,30 @@
         class="text-iput d-flex justify-content-center flex-column align-items-center"
       >
         <div class="mb-3">
-          <label for="to-do" class="form-label">TO DO</label>
+          <label for="to-do" class="form-label">Cosa fare</label>
           <input
+            v-model="toDo.whatToDo"
             type="text"
             class="form-control"
             id="to-do"
-            placeholder="What you wanna do"
+            placeholder="Cosa devi fare?"
           />
         </div>
+        <button @click="addToList" class="btn btn-primary">
+          Aggiungi alla lista
+        </button>
       </div>
       <!-- INPUT -->
       <!-- LIST -->
       <div class="list-container w-75 p-5">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
+          <li
+            v-for="(element,index) in lista"
+            :key="index"
+            class="list-group-item"
+          >
+            {{element}}
+          </li>
         </ul>
       </div>
       <!-- LIST -->
