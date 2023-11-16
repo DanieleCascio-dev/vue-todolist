@@ -31,11 +31,8 @@
       </header>
 
       <!-- INPUT -->
-      <div
-        class="text-iput d-flex justify-content-center flex-column align-items-center"
-      >
-        <div class="mb-3">
-          <label for="to-do" class="form-label">Cosa fare</label>
+      <div class="text-iput d-flex justify-content-center">
+        <div class="me-2 align-baseline">
           <input
             @keyup.enter="addToList"
             v-model="toDo.whatToDo.text"
@@ -43,18 +40,27 @@
             class="form-control"
             id="to-do"
             placeholder="Cosa devi fare?"
+            @click="removeErrorVisible"
           />
         </div>
-        <button @click="addToList" class="btn btn-primary">
+        <button @click="addToList" class="btn btn-primary me-2">
           Aggiungi alla lista
         </button>
+      </div>
+      <div class="d-flex justify-content-center mt-2">
+        <small
+          @click="removeErrorVisible"
+          class="text-danger"
+          v-show="errorVisible"
+          >Il Todo non deve essere vuoto</small
+        >
       </div>
       <!-- INPUT -->
       <!-- LIST -->
       <div class="list-container p-5 row justify-content-center">
         <ul class="list-group list-group-flush col-6">
           <li
-            v-if="!(toDo.whatToDo.text === '') "
+            v-if="lista.length !== 0 "
             role="button"
             v-for="(element,index) in lista"
             :key="index"
