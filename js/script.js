@@ -20,7 +20,7 @@ const app = createApp({
         /* alert("Non c'è nulla da inserire nella lista!"); */
         this.errorVisible = true;
       } else {
-        this.lista.push({
+        this.lista.unshift({
           text: this.toDo.whatToDo.text,
           done: this.toDo.whatToDo.done,
         });

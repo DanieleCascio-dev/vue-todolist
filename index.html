@@ -58,21 +58,21 @@
       <!-- INPUT -->
       <!-- LIST -->
       <div class="list-container p-5 row justify-content-center">
-        <ul class="list-group list-group-flush col-6">
+        <ul class="list-group list-group-flush col-6 gap-1">
           <li
             v-if="lista.length !== 0 "
             role="button"
             v-for="(element,index) in lista"
             :key="index"
             class="list-group-item d-flex justify-content-between"
-            :class="{'yellow': element.done === false, 'green': element.done === true }"
+            :class="{'yellow': element.done === false, 'green': element.done }"
             @click="toDoDone(element.done,index)"
           >
             {{element.text}} {{ element.done === false ? ' Da fare!' : ' Fatto!'
             }}
 
             <span @click="removeToDo(index)" role="button"
-              ><i class="fa-solid fa-circle-xmark"></i
+              ><i class="fa-solid fa-circle-xmark red"></i
             ></span>
           </li>
         </ul>
