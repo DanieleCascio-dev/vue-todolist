@@ -34,13 +34,13 @@
       <div class="text-iput d-flex justify-content-center">
         <div class="me-2 align-baseline">
           <input
+            @keyup="removeErrorVisible"
             @keyup.enter="addToList"
-            v-model="toDo.whatToDo.text"
+            v-model.trim="toDo.whatToDo.text"
             type="text"
             class="form-control"
             id="to-do"
             placeholder="Cosa devi fare?"
-            @click="removeErrorVisible"
           />
         </div>
         <button @click="addToList" class="btn btn-primary me-2">

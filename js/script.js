@@ -21,7 +21,7 @@ const app = createApp({
         this.errorVisible = true;
       } else {
         this.lista.push({
-          text: this.toDo.whatToDo.text.trim(),
+          text: this.toDo.whatToDo.text,
           done: this.toDo.whatToDo.done,
         });
         this.toDo.whatToDo.text = "";
