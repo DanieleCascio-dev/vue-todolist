@@ -15,6 +15,9 @@ const app = createApp({
   methods: {
     addToList: function () {
       console.log("Lista");
+      if (this.toDo.whatToDo.text === "") {
+        alert("Non c'è nulla da inserire nella lista!");
+      }
       this.lista.push({
         text: this.toDo.whatToDo.text,
         done: this.toDo.whatToDo.done,
