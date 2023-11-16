@@ -29,12 +29,12 @@ const app = createApp({
       }
     },
     removeToDo: function (index) {
-      console.log("remove");
+      console.log("remove", this.lista);
       this.lista.splice(index, 1);
       console.log(this.lista);
     },
     toDoDone: function (done, index) {
-      console.log("done");
+      console.log("done", this.lista);
       this.lista[index].done = !done;
     },
     removeErrorVisible() {

@@ -71,7 +71,7 @@
             {{element.text}} {{ element.done === false ? ' Da fare!' : ' Fatto!'
             }}
 
-            <span @click="removeToDo(index)" role="button"
+            <span @click.stop="removeToDo(index)" role="button"
               ><i class="fa-solid fa-circle-xmark red"></i
             ></span>
           </li>
